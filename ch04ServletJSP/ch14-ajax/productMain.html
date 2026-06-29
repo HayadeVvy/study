@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품 목록</title>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	#wrap{
+		overflow:hidden;
+	}
+	.item{
+		margin:5px;
+		padding:5px;
+		width:300px;
+		height:150px;
+		float:left;
+		border-width:3px;
+		border-style:solid;
+		border-radius:10px;
+	}
+	ul{
+		overflow: hidden;
+	}
+	li{
+		float:left;
+		list-style: none;
+		padding:10px;
+		cursor:pointer;
+	}
+</style>
+<script type="text/javascript" 
+              src="../js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//페이지와 관련된 정보를 가지는 변수
+	let pageSize=6;//화면에 보여줄 레코드 수
+	let pageBlock=10;//페이지 표시 단위(1~10)
+	let currentPage;//현재 보고 있는 화면
+	let totalItem;//총레코드수
+	
+	//목록
+	function getItems(num){
+		//서버와 통신
+		$.ajax({
+			url:'getProductList.jsp',
+			type:'get',
+			data:{pageNum:num,rowCount:pageSize},
+			dataType:'json',
+			success:function(param){
+				//태그 초기화
+				$('#wrap').empty();
+				
+				$(param).each(function(index,item){
+					let output = '';
+					output += '<div class="item">';
+					output += '<h3>' + item.pid + ':' + item.pname + '</h3>';
+					output += '<p> size : ' + item.psize + '</p>'; 
+					output += '<p> color : ' + item.pcolor + '</p>';
+					output += '<p> cost : ' + item.pcost + '</p>';
+					output += '</div>';
+					//문서 객체에 추가
+					$('#wrap').append(output);
+				});
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
+		});
+		
+		//페이지 설정
+		setPage();
+	}
+	//페이지 설정
+	function setPage(){
+		//서버와 통신
+		$.ajax({
+			url:'getTotalProductCount.jsp',
+			dataType:'json',
+			success:function(param){
+				if(param.result == 'success'){
+					//ul 태그 초기화
+					$('.paging-btn').empty();
+					//총레코드수
+					totalItem = param.count;
+					if(totalItem == 0){
+						return;
+					}
+					
+					let totalPage = Math.ceil(totalItem/pageSize);
+					
+					if(currentPage == undefined || currentPage == ''){
+						currentPage = 1;
+					}
+					
+					//현재 페이지가 전체 페이지수보다 크면 전체 페이지수로 설정
+					if(currentPage > totalPage){
+						currentPage = totalPage;
+					}
+					//시작 페이지와 마지막 페이지 값을 구하기
+					let startPage = 
+						Math.floor((currentPage-1)/pageBlock)*pageBlock + 1;
+					let endPage = startPage + pageBlock -1;
+					
+					//마지막 페이지가 던체 페이지수보다 크면 전체 페이지수로 설정
+					if(endPage > totalPage){
+						endPage = totalPage
+					}
+					
+					let add = '';
+					if(startPage > pageBlock){
+						add += '<li data-page="'+(startPage-1)+'">[이전]</li>';
+					}
+					
+					for(let i=startPage;i<=endPage;i++){
+						add += '<li data-page="'+i+'">'+i+'</li>';
+					}
+					
+					if(endPage < totalPage){
+						add += '<li data-page="'+(startPage+pageBlock)+'">[다음]</li>';
+					}
+					
+					//ul 태그에 생성한 li를 추가
+					$('.paging-btn').append(add);
+					
+				}else{
+					alert('페이지 처리 오류');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
+		});
+	}
+	//페이지 버튼 이벤트 연결
+	$(document).on('click','.paging-btn li',function(){
+		//페이지 번호를 읽어들임
+		currentPage = $(this).attr('data-page');
+		//목록 호출
+		getItems(currentPage);
+	});
+	
+	//초기 페이지 설정
+	getItems(1);
+	
+});
+</script>              
+</head>
+<body>
+	<ul class="paging-btn"></ul>
+	<div id="wrap"></div>
+	<ul class="paging-btn"></ul>
+</body>
+</html>
+
+

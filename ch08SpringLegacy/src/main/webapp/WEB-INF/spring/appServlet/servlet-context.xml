@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 어노테이션을 이용한 유효성 체크 설정 -->
+	<annotation-driven/>
+	
+	<!-- 정적 파일이 /resources/** 패턴으로 요청되면 /resources/ 경로에 있는 파일에 매핑  -->
+	<resources mapping="/resources/**" location="/resources/" />
+	
+	<!--============================== viewResolver 설정============================= -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"/>
+	</beans:bean>
+	
+	<!-- MVC 기본 설정 -->
+	<beans:bean id="helloController"
+	   class="kr.spring.mvc01.controller.HelloController"/>
+
+	<!-- 파라미터로 전송된 데이터 처리 -->
+	<beans:bean
+	    class="kr.spring.mvc02.controller.SearchController"/>
+	
+	<!-- @Autowired 사용을 위해서 -->
+	<context:annotation-config/>
+	
+	<!-- POST 방식으로 데이터 전송 -->
+	<beans:bean 
+	   class="kr.spring.mvc03.controller.NewArticleController"/>
+	<beans:bean
+	   class="kr.spring.mvc03.service.ArticleService"/>
+	   
+	<!-- @CookieValue 어노테이션을 이용한 쿠키 매핑 -->
+	<beans:bean
+	   class="kr.spring.mvc04.controller.CookieController"/>   
+	
+	<!-- 데이터 전송 및 자바빈 사용 -->
+	<beans:bean 
+	   class="kr.spring.mvc05.controller.GameSearchController"/>
+	<beans:bean
+	   class="kr.spring.mvc05.service.SearchService"/>
+	   
+	<!-- 유효성 체크 -->
+	<beans:bean 
+	   class="kr.spring.mvc06.controller.CreateAccountController"/>   
+	
+	<!-- 리소스 번들 지정 -->
+	<beans:bean id="messageSource"
+	 class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basenames">
+			<beans:list>
+				<beans:value>messages.validation</beans:value>	
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- login -->
+	<beans:bean
+	  class="kr.spring.mvc07.controller.LoginController"/>
+	<beans:bean
+	  class="kr.spring.mvc07.service.LoginService"/> 
+	  
+	<!-- 어노테이션을 이용한 유효성 체크 -->
+	<beans:bean
+	  class="kr.spring.mvc08.controller.MemberWriteController"/>   
+	
+	<!-- multipartResolver 설정 -->
+	<beans:bean id="multipartResolver"
+	   class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="52428800"/><!-- 50M -->
+		<beans:property name="defaultEncoding" value="UTF-8"/>   
+	</beans:bean>
+	
+	<!-- 파일 업로드 경로가 명시된 설정 파일 지정 -->
+	<context:property-placeholder 
+	         location="classpath:config/file.properties"/>
+	
+	<!-- 파일 업로드 처리 -->
+	<beans:bean
+	  class="kr.spring.mvc09.controller.SubmitReportController"/>
+	
+	<!-- 클래스가 뷰 역할을 할 수 있도록 viewResolver 등록 -->
+	<beans:bean id="viewResolver"
+	 class="org.springframework.web.servlet.view.BeanNameViewResolver"
+	 p:order="0"/>
+	<beans:bean
+	  class="kr.spring.mvc10.controller.DownloadController"/>
+	<beans:bean id="download"
+	  class="kr.spring.mvc10.view.DownloadView"/>
+	  
+	<!-- 엑셀 파일 다운로드 -->
+	<beans:bean
+	  class="kr.spring.mvc11.controller.PageRanksController"/>
+	<beans:bean id="pageRanks"
+	  class="kr.spring.mvc11.view.PageRanksView"/>   
+	  
+	<!-- JSON 문자열 처리 -->
+	<beans:bean
+	  class="kr.spring.mvc12.controller.PageReportController"/>      
+	
+</beans:beans>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+create table score(
+ num number primary key,
+ name varchar2(30) not null,
+ korean number(3) not null,
+ english number(3) not null,
+ math number(3) not null,
+ reg_date date not null
+);
+create sequence score_seq;

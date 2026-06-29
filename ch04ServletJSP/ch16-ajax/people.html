@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript - fetch + async/await를 이용한 비동기 통신 구현</title>
+<script type="text/javascript">
+	//DOM이 완전히 로드된 이후 실행
+	//함수 앞에 async를 붙히면 해당 함수는 비동기 함수로 변환됨
+	document.addEventListener("DOMContentLoaded",
+			                         async function(){
+		try{
+			//fetch API를 사용하여 서버(myJSON.jsp)에서 GET
+			//요청
+			//기본적으로 비동기 처리이며 응답 데이터를 반환
+			const response = await fetch('myJson.jsp');
+			
+			//fetch는 HTTP에러(404,500 등)을 자동으로
+			//catch하지 않음. 따라서 응답 상태 직접 확인
+			if(!response.ok){
+				//상태 코드와 함께 에러 발생시킴
+				throw new Error(
+					'네트워크 응답 오류 : ' + response.status);
+			}
+			
+			//응답 데이터를 JSON 형태로 변환
+			const param = await response.json();
+			
+			param.forEach(item => {
+				let output = `
+					<div>
+						<h1>${item.name}</h1>
+						<p>${item.job}</p>
+						<p>${item.age}</p>
+					</div>
+				`;
+				
+				/*
+				insertAdjacentHTML()은 기존 DOM을 다시 
+				파싱하지 않고, 지정한 위치에 HTML 문자열 바로
+				삽입하는 메서드
+				[지정위치]
+				값			위치
+				beforebegin	해당 요소 바로 앞
+				afterbegin	해당 요소 첫 번째 자식 앞
+				beforeend	해당 요소 마지막 자식 뒤
+				afterend	해당 요소 바로 뒤
+				*/
+				document.getElementById('output')
+				        .insertAdjacentHTML('beforeend',output);
+			});
+			
+		}catch(error){
+			console.error('에러 발생:',error);
+		}	
+	});
+</script>
+</head>
+<body>
+	<div id="output"></div>
+</body>
+</html>

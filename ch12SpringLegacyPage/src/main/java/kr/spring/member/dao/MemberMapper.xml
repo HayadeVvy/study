@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.member.dao.MemberMapper"> 
+    <!-- 회원의 총레코드수 -->
+    <select id="selectRowCount" parameterType="map"
+                                resultType="integer">
+    	SELECT COUNT(*)
+    	FROM slpmember LEFT OUTER JOIN slpmember_detail
+    	USING (mem_num)
+    	<where>
+    		<if test="keyword != null and keyword != ''">
+    			<if test="keyfield == 1">
+    				id LIKE '%' || #{keyword} || '%' or
+    				nick_name LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 2">
+    				name LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 3">
+    				email LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 4">
+    				id LIKE '%' || #{keyword} || '%' or
+    				name LIKE '%' || #{keyword} || '%' or
+    				email LIKE '%' || #{keyword} || '%'
+    			</if> 
+    		</if>
+    	</where>                            
+    </select>
+    <!-- 회원 목록 -->
+    <select id="selectList" parameterType="map"
+                            resultType="memberVO">
+    	SELECT *
+    	FROM slpmember LEFT OUTER JOIN slpmember_detail
+    	USING(mem_num)
+    	<where>
+    		<if test="keyword != null and keyword != ''">
+    			<if test="keyfield == 1">
+    				id LIKE '%' || #{keyword} || '%' or
+    				nick_name LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 2">
+    				name LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 3">
+    				email LIKE '%' || #{keyword} || '%'
+    			</if>
+    			<if test="keyfield == 4">
+    				id LIKE '%' || #{keyword} || '%' or
+    				name LIKE '%' || #{keyword} || '%' or
+    				email LIKE '%' || #{keyword} || '%'
+    			</if> 
+    		</if>
+    	</where>  
+    	ORDER BY reg_date DESC 
+    	OFFSET #{skip} ROWS FETCH NEXT #{limit} ROWS ONLY
+    </select>
+</mapper>
+
+
+
+
+
+
+

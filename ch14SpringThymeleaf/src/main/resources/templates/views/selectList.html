@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판 목록</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<!--/* 
+템플릿 엔진 : HTML 기반으로 서버에서 동적인 콘텐츠를 생성하는 도구
+           JSP, Freemarker, Thymeleaf 등
+타임리트 :
+	- 스프링 부트에서 기본 제공하는 템플릿 엔진
+	- HTML 파일을 그대로 브라우저에서 볼 수 있음(내추럴 템플릿)
+	- JSP보다 가볍고 보안성이 높음
+
+표현식(변수 출력)
+${} : 예)${message}
+*{} : 객체 내부 필드 접근
+#{} : 메시지 프로퍼티 출력
+@{} : URL 표현식
+~{} : Fragment. 템플릿의 재사용 가능한 조각(template fragment)
+#객체명 : Thymeleaf 내장 유틸리티 객체
+
+태그의 명시하는 속성
+th:text, th:utext, th:if, th:unless, th:switch,
+th:each, th:href
+ */-->
+<div class="page-main">
+	<h2>게시판 목록</h2>
+	<div class="align-right">
+		<input type="button" value="글쓰기"
+		    onclick="location.href='insert.do'">
+	</div>
+	<div class="result-display" 
+	     th:if="${count == 0}">표시할 내용이 없습니다.</div>
+	<div th:unless="${count == 0}">
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			         <!-- 변수, 상태변수 : 컬렉션 -->
+			<tr th:each="board,userStat : ${list}">
+			    <!-- th:text는 HTML 불허 -->
+				<td th:text="${board.num}"></td>
+				       <!-- 아래와 같이 명시하면 /detail.do?num=3 -->
+				<td><a th:href="@{/detail.do(num=${board.num})}" th:text="${board.title}"></a></td>
+				<td th:text="${board.writer}"></td>
+				<td th:text="${board.reg_date}"></td>
+			</tr>
+		</table>
+		<!--/*
+		상태변수 
+		index : 0부터 시작 th:text="${userStat.index}"
+		count : 1부터 시작 th:text="${userStat.count}"
+		size : 전체 사이즈 th:text="${userStat.size}"
+		even : 짝수 여부(boolean) th:text="${userStat.even}"
+		odd : 홀수 여부(boolean) th:text="${userStat.odd}"
+		first : 처음 여부(boolean) th:text="${userStat.first}"
+		last : 끝 여부(boolean) th:text="${userStat.last}"
+		current : 현재 객체 th:text="${userStat.current}"
+		 */-->
+		                       <!-- th:utext는 HTML 허용 --> 
+		<div class="align-center" th:utext="${page}"></div>
+	</div>     
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

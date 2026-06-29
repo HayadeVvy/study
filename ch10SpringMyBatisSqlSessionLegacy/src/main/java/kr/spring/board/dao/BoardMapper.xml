@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.board.dao.BoardMapper">  
+  	<!-- 글쓰기 -->
+  	<insert id="insertBoard" parameterType="boardVO">
+  		INSERT INTO aboard(
+  		 num,
+  		 writer,
+  		 title,
+  		 passwd,
+  		 content,
+  		 reg_date)
+  		VALUES (
+  		 aboard_seq.nextval,
+  		 #{writer},
+  		 #{title},
+  		 #{passwd},
+  		 #{content},
+  		 SYSDATE) 
+  	</insert>
+  	
+  	<!-- 총레코드 수 -->
+  	<select id="selectBoardCount" resultType="integer">
+  		SELECT
+  		  COUNT(*)
+  		FROM aboard
+  	</select>
+  	
+  	<!-- 목록 -->
+  	<select id="selectBoardList" parameterType="map"
+  	                              resultType="boardVO">
+  		SELECT *
+  		FROM aboard
+  		ORDER BY num DESC
+  		OFFSET #{skip} ROWS FETCH NEXT #{limit} ROWS ONLY
+  	</select>
+  	
+  	<!-- 글 상세 -->
+  	<select id="selectBoard" parameterType="long"
+  	                               resultType="boardVO">
+  		SELECT *
+  		FROM aboard
+  		WHERE num = #{num}
+  	</select>
+  	
+  	<!-- 글 수정 -->
+  	<update id="updateBoard" parameterType="boardVO">
+  		UPDATE aboard
+  		SET
+  		  writer=#{writer},
+  		  title=#{title},
+  		  content=#{content}
+  		WHERE num=#{num}  
+  	</update>
+  	
+  	<!-- 글 삭제 -->
+  	<delete id="deleteBoard" parameterType="long">
+  		DELETE FROM aboard
+  		WHERE num=#{num}
+  	</delete>
+  	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>글 수정</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<div class="page-main">
+	<h2>글 수정</h2>
+	<form action="update.do" th:object="${boardVO}" method="post">
+		<input type="hidden" name="num" th:field="*{num}">
+		<ul>
+			<li>
+				<label for="writer">작성자</label>
+				<!-- th:field는 폼(form) 입력 필드에 값을
+				   자동으로 바인딩하고, 주고 Spring MVC에서
+				   @ModelAttribute로 바인딩되는 객체의 필드와
+				     연결 -->
+				<input type="text" name="writer"
+				 id="writer" th:field="*{writer}">
+				<span th:if="${#fields.hasErrors('writer')}"
+				      th:errors="*{writer}" class="error-color"></span> 
+			</li>
+			<li>
+				<label for="title">제목</label>
+				<input type="text" name="title"
+				 id="title" th:field="*{title}">
+				<span th:if="${#fields.hasErrors('title')}"
+				      th:errors="*{title}" class="error-color"></span> 
+			</li>
+			<li>
+				<label for="passwd">비밀번호</label>
+				<input type="password" name="passwd" id="passwd">
+				<span th:if="${#fields.hasErrors('passwd')}"
+				      th:errors="*{passwd}" class="error-color"></span> 
+			</li>
+			<li>
+				<label for="content">내용</label>
+				<textarea name="content" id="content" 
+				th:field="*{content}"></textarea>
+				<span th:if="${#fields.hasErrors('content')}"
+				      th:errors="*{content}" class="error-color"></span> 
+			</li>
+		</ul>
+		<div class="align-center">
+			<input type="submit" value="수정">
+			<input type="button" value="홈으로"
+			    onclick="location.href='list.do'">
+		</div>
+	</form>     
+</div>
+</body>
+</html>
+
+
+
+
