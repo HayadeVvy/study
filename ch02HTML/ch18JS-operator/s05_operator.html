@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼항연산자</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var temp1 = 5, temp2 = 10;
+        var max, min;
+
+        //두 숫자의 크기를 비교하여 max와
+        //min변수에 저장
+        //조건 ? 참일 때 (변수=값,변수=값) : 거짓일 때 (변수=값,변수=값)
+        temp1 > temp2 ? (max=temp1,min=temp2) : (max=temp2,min=temp1);
+        
+        document.write('큰 값 = ' + max + '<br>');
+        document.write('작은 값 = ' + min + '<br>');
+
+
+    </script>
+</body>
+</html>

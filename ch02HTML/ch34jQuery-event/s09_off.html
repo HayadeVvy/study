@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //현재 존재하는 태그뿐만아니라 미래에 새로 생성되는
+            //태그에도 이벤트 연결
+            //document객체  이벤트 종류,이벤트 발생 태그,이벤트 핸들러
+            $(document).on('click','h1',function(){
+                let length = $('h1').length;//h1태그의 개수
+                let targetHTML = $(this).html();
+                $('#wrap').append(
+                    '<h1>'+ length + '-' + targetHTML + '</h1>');
+            });
+
+            //5초 이후에는 모든 이벤트가 제거됨
+            setTimeout(function(){
+                //이벤트 제거
+                $(document).off('click','h1');
+            },5000);
+
+       });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Header</h1>
+    </div>
+</body>
+</html>

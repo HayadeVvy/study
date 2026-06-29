@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //filter():특정 조건을 만족하는 새로운
+        //         배열을 만들 때 사용
+
+        //배열 생성
+        const array = [1,2,3,4,5,6,7,8,9,10];
+
+        const new_array = array.filter(
+            function(element,index,array){
+                //element : 요소
+                //index : 인덱스
+                //array : 배열
+                return element <= 5;
+            });
+
+            document.write(new_array);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //객체 생성
+        const product = {
+            //속성(key(프로퍼티):value)
+            제품명:'소나타',
+            제품번호:'A1001',
+            기능:'5doors',
+            원산지:'대한민국',
+            가격:1000,
+            업데이트지원:true,//마지막 쉼표는 무시됨
+        };
+
+        //객체의 속성 호출
+        document.write(product.제품명);
+        document.write('<br>');
+        document.write(product['제품명']);
+        document.write('<br>');
+    </script>
+</body>
+</html>

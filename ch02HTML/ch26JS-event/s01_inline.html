@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 이벤트 처리</title>
+    <style type="text/css">
+        div#header{
+            background-color:orange;
+        }
+    </style>
+    <script type="text/javascript">
+        function whenClick(){
+            alert('CLICK');
+        }
+    </script>
+</head>
+<body>
+   <input type="button" value="이동"
+      onclick="location.href='https://www.naver.com'"> 
+   <input type="button" value="확인"
+      onclick="alert('클릭');alert('CLICK');">
+   <div id="header" onclick="whenClick()">클릭</div>      
+</body>
+</html>

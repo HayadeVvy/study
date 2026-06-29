@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+        $(document).ready(function(){
+          //하나의 속성 제어
+          /*
+          $('img').attr('width',function(index){
+                //index : 배열의 인덱스
+                return (index + 1) * 100;
+          });
+          */
+
+          //복수의 속성 제어
+          /*
+          $('img').attr('width',function(index){
+                return (index + 1) * 100;
+          }).attr('height',function(index){
+                return (index + 1) * 100;
+          });
+          */
+
+          //복수의 속성 제어(객체 사용)
+          $('img').attr({
+            width:function(index){
+                return (index + 1) * 100;
+            },
+            height:function(index){
+                return (index + 1) * 100;
+            }
+          });
+        });
+    </script>
+</head>
+<body>
+    <img src="../files/blue.jpg">
+    <img src="../files/flower.jpg">
+    <img src="../files/winter.jpg">
+</body>
+</html>

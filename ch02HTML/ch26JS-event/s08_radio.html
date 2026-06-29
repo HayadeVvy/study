@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 연결</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            //div
+            const notice = 
+                  document.getElementById('notice');
+            //input
+            const radios = 
+                  document.getElementsByTagName('input');
+            for(let i=0;i<radios.length;i++){
+                //이벤트 연결
+                radios[i].onclick=function(){
+                    if(radios[0].checked){
+                        //첫 번째 radio button 선택
+                        //div 숨기기
+                        notice.style.display = 'none';
+                    }else{
+                        //두 번째 radio button 선택
+                        //div 표시하기
+                        notice.style.display = '';
+                    }
+                };
+            }            
+        };
+    </script>
+</head>
+<body>
+    <form>
+        <input type="radio" name="price"
+          value="0" checked>무료
+        <input type="radio" name="price"
+          value="1">유료  
+    </form>
+    <div id="notice" style="display:none;">
+        유료회원 가입비는 10,000원
+    </div>
+</body>
+</html>

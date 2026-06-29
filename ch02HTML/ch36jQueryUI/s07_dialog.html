@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQueryUI</title>
+    <link rel="stylesheet" href="../css/jquery-ui.min.css">
+    <style type="text/css">
+        body{
+            font-family: "Trebuchet MS", Helvetica, 
+                          Arial, Verdana, sans-serif;
+            font-size:62.5%;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#dialog').dialog({
+                resizable:false,
+                height:200,
+                modal:true, //부모창 영역을 선택할 수 없음
+                buttons:{
+                    'Delete all items':function(){
+                        $(this).dialog('close');
+                    },
+                    Cancel:function(){
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--다이얼로그-->
+    <div id="dialog" title="Basic dialog">
+        <p>오늘은 화요일 바람이 불어요!!
+           오늘은 화요일 바람이 불어요!!</p>
+    </div>
+    <!--부모 화면-->
+    <p>여기는 서울입니다.</p>
+</body>
+</html>

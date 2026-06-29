@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <div>
+            <h2>취미생활</h2>
+            <input type="checkbox" id="hobbyA"
+              value="A" v-model="hobby">
+            <label for="hobbyA">운동</label><br>
+            <input type="checkbox" id="hobbyB"
+              value="B" v-model="hobby">
+            <label for="hobbyB">독서</label><br>
+            <input type="checkbox" id="hobbyC"
+              value="C" v-model="hobby">
+            <label for="hobbyC">음악</label><br>
+            <input type="checkbox" id="hobbyD"
+              value="D" v-model="hobby">
+            <label for="hobbyD">댄스</label><br>
+            <input type="checkbox" id="hobbyE"
+              value="E" v-model="hobby">
+            <label for="hobbyE">역사</label><br>  
+        </div>
+        <div>
+            <h2>상품 분류 선택</h2>
+            <select v-model="category">
+                <option value="">---상품 분류를 선택하세요---</option>
+                <option value="C01">레저</option>
+                <option value="C02">가전</option>
+                <option value="C03">음식</option>
+                <option value="C04">도서</option>
+                <option value="C05">주방</option>
+            </select>
+        </div>
+        <hr/>
+        <div>
+            선택한 취미 : {{hobby.join()}}<br>
+            선택한 상품 분류 : {{category}}
+        </div>
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+        Vue.createApp({
+            //컴포넌트가 관리하고 추적해야 할 데이터를
+            //등록할 때 사용
+
+            //Vue 컴포넌트에서 사용하는 반응형 데이터 정의
+            //반응형 데이터(Reactive Data)는 데이터가 변경되면
+            //그 데이터를 사용하는 UI(View)가 자동으로 다시
+            //갱신되는 데이터를 의미
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                    hobby:[],
+                    category:""
+                }
+            }
+        })
+        //mount()
+        //Vue 애플리케이션을 실제 DOM 요소에 연결
+        //'#app' 요소 내부가 Vue의 관리 영역이 됨
+        .mount('#app');
+    </script>
+</body>
+</html>

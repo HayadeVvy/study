@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적관리</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습] 성적을 관리하는 배열을 생성
+        5과목(국어,영어,수학,과학,미술)
+        배열명은 score
+        [출력예시] 
+        총점 : 368점
+        평균 : 95.345점
+        */
+       
+        //배열 생성
+        const score = [100,80,73,99,88];
+        let sum = 0;
+        let avg = 0;
+
+        //총점 구하기
+        /*
+        for(let i=0;i<score.length;i++){
+            sum += score[i];
+        }
+        */
+        
+        score.forEach(
+            function(element,index,array){
+                sum += element;
+            });
+
+        //평균 구하기
+        avg = sum / score.length;
+
+        document.write('총점 : ' + sum + '<br>');
+        document.write('평균 : ' + avg + '<br>');
+
+    </script>
+</body>
+</html>

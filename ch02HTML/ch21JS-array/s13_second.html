@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //2차원 배열(2행4열의 2차원 배열)
+        var array = [
+                     ['포도','사과','바나나','망고'],
+                     ['1','2','3','4']
+                    ];
+        
+        var output = '';
+        for(var i=0;i<array.length;i++){
+            for(var j=0;j<array[i].length;j++){
+                output += array[i][j] + '<br>';
+            }
+        }  
+        document.write(output);          
+    </script>
+</body>
+</html>

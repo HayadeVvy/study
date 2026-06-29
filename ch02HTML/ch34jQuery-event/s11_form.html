@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //이벤트 연결
+            $('#my_form').submit(function(){
+                if($('#name').val()==''){
+                    alert('이름을 입력하세요');
+                    $('#name').focus();
+                    return false;
+                }
+                if($('#password').val()==''){
+                    alert('비밀번호를 입력하세요');
+                    $('#password').focus();
+                    return false;
+                }
+            });
+       });
+    </script>
+</head>
+<body>
+    <form id="my_form" action="1.jsp">
+        <ul>
+            <li>
+                <label for="name">이름</label>
+                <input type="text" name="name" id="name">
+            </li>
+            <li>
+                <label for="password">비밀번호</label>
+                <input type="password" name="password"
+                       id="password">
+            </li>
+        </ul>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>

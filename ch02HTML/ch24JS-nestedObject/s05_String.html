@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let msg = '세상에 끝에서 세상을 노래하다';
+                // 0 1 2 34 5 678
+
+        document.write(msg.length + '<br>');
+        document.write(msg.charAt(8) + '<br>');
+        document.write(msg.indexOf('상') + '<br>');
+        document.write(msg.indexOf('노래') + '<br>');
+        document.write(msg.indexOf('수') + '<br>');
+        document.write(msg.lastIndexOf('상') + '<br>');
+
+        //지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.substring(5) + '<br>');
+        //시작인덱스부터 끝인덱스전까지 추출
+        document.write(msg.substring(1,5) + '<br>');
+        document.write('------------<br>');
+
+        //지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.substr(5) + '<br>');
+        //시작인덱스,추출할 문자 개수
+        document.write(msg.substr(5,2) + '<br>');
+        document.write('------------<br>');
+
+        //지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.slice(5) + '<br>');
+        //시작인덱스부터 끝인덱스전까지 추출
+        document.write(msg.slice(1,5) + '<br>');
+        document.write('------------<br>');
+
+        let msg2 = 'Hello WORLD';
+        document.write(msg2.toUpperCase() + '<br>');
+        document.write(msg2.toLowerCase() + '<br>');
+        document.write('------------<br>');
+
+        let msg3 = '하하';
+        document.write(msg.concat(msg3) + '<br>');
+        document.write('------------<br>');
+
+        let msg4 = '2026-03-16';
+        const array = msg4.split('-');
+        //배열의 요소 목록
+        document.write(array);
+    </script>
+</body>
+</html>

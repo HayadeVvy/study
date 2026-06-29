@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적 처리</title>
+    <script type="text/javascript">
+        function check(){
+            const korean = 
+                   document.getElementById('korean');
+            const english = 
+                  document.getElementById('english');
+            const math = 
+                  document.getElementById('math');
+            
+            let sum = Number(korean.value) + 
+                      Number(english.value) + 
+                      Number(math.value);      
+            let average = sum / 3;
+            alert('sum = ' + sum 
+                   + ', average = ' + average.toFixed(2));
+        }
+    </script>
+</head>
+<body>
+    <form>
+        국어 : <input type="text" name="korean"
+               id="korean"><br>
+        영어 : <input type="text" name="english"
+               id="english"><br>
+        수학 : <input type="text" name="math"
+                id="math"><br>
+        <input type="button" value="등록"
+                             onclick="check()">       
+    </form>
+</body>
+</html>

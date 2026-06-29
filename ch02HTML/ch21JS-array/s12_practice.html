@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습] 정수 다섯개를 입력 받아서 배열에
+               저장.
+               배열에서 최소값과 최대값을 구하시오
+        [입력예시] prompt를 이용해서 다섯개의 정수 입력
+        [출력예시] 최대값 : 100
+                   최소값 : 33       
+        */
+
+        //배열 생성
+        const score = [];
+
+        //형변환하지 않으면 비교시 문자열로
+        //비교하는 현상 발생
+        for(let i=1;i<=5;i++){
+            score.push(
+            Number(prompt(i + '번 숫자 입력:','')));
+        }
+
+        let max = score[0], min = score[0];
+
+        score.forEach(
+            function(element,index,array){
+                if(max < element){
+                    max = element;
+                }
+                if(min > element){
+                    min = element;
+                }
+            });
+
+            document.write(
+                '배열에 저장된 숫자 : ' + score + '<br>');
+            document.write('최대값:' + max + '<br>');
+            document.write('최소값:' + min + '<br>');    
+    </script>
+</body>
+</html>

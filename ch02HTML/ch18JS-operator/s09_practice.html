@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습]신장에 따른 적정 체중 구하기
+        키와 몸무게를 입력 받아서 
+        몸무게 적정 몸무게이상일 경우에는
+        "적정 몸무게 이상", 미만일 경우에는
+        "적정 몸무게 미만"로 출력되게 처리
+        하시오.
+        적정 몸무게 공식은 
+        '적정 몸무게 = (신장-100)*0.9'
+        [입력예시]prompt를 이용해서 
+                 신장과 몸무게 입력
+        [출력예시]
+        당신의 키는 190cm
+        당신의 몸무게는 90kg
+        당신의 적정 몸무게는 81kg
+        입력한 몸무게와 적정 몸무게 차이는 9kg
+        적정 몸무게 이상
+        */
+        var height = prompt('당신의 키를 입력하세요','');
+        var weight = prompt('당신의 몸무게를 입력하세요','');
+
+        //적정 몸무게 
+        var normal_weight = (height-100)*0.9;
+
+        var result = weight>=normal_weight 
+                           ? '적정 몸무게 이상' 
+                           : '적정 몸무게 미만';
+         
+        document.write(
+            '당신의 키는 ' + height +'cm<br>'); 
+        document.write(
+         '당신의 몸무게는' + weight + 'kg<br>');
+        document.write(
+            '당신의 적정 몸무게는 ' 
+                + normal_weight + 'kg<br>');  
+        document.write(
+            '입력 몸무게와 적정 몸무게 차이 '
+            + (weight - normal_weight) 
+            +'kg<br>'); 
+        document.write('당신은 ' + result);                   
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습]두 수를 입력해서 덧셈(add),
+        곱셈(multi),뺄셈(sub), 
+        나눗셈(div)을 해서 결과 값을
+        출력
+        [입력 예시]prompt 사용 - 
+                  첫 번째 수, 두 번째 수
+        [출력 예시]
+        덧셈 : 10
+        뺄셈 : 2
+        곱셈 : 24
+        나눗셈 : 1.5
+        */
+       function add(num1,num2){
+        return num1 + num2;
+       }
+       function sub(num1,num2){
+        return num1 - num2;
+       }
+       function multi(num1,num2){
+        return num1 * num2;
+       }
+       function div(num1,num2){
+        return num1 / num2;
+       }
+
+       let first = prompt('첫 번째 숫자','');
+       let second = prompt('두 번째 숫자','');
+
+       let add_result = 
+         add(Number(first),Number(second));
+       let sub_result = sub(first,second);
+       let multi_result = multi(first,second);
+       let div_result = div(first,second);
+       
+       document.write(
+        '덧셈 : ' + add_result + '<br>');
+       document.write(
+        '뺄셈 : ' + sub_result + '<br>');
+       document.write(
+        '곱셈 : ' + multi_result + '<br>');
+       document.write(
+        '나눗셈 : ' + div_result + '<br>');   
+
+    </script>
+</body>
+</html>

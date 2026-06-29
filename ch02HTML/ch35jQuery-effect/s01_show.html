@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            $('#btn1').on('click',function(){
+                //속도값 fast(200), normal(400) slow(600)
+                //속도값은 밀리세컨드 지정 가능
+                $('#dog').show('slow',function(){
+                    alert('노출 완료!');
+                });
+            });
+
+            $('#btn2').on('click',function(){
+                $('#dog').hide(1000,function(){
+                    alert('숨김 완료');
+                });
+            });
+
+            $('#btn3').on('click',function(){
+                //선택한 요소가 보이면 숨기고, 숨겨져 있으면 
+                //나타나도록 처리
+                $('#dog').toggle('slow');
+            });
+
+       });
+    </script>
+</head>
+<body>
+    <button id="btn1">Show</button>
+    <button id="btn2">Hide</button>
+    <button id="btn3">Toggle</button>
+    <br>
+    <img id="dog" src="../files/dog.png"
+       width="120" height="100" style="display:none">
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체의 innerHTML 속성 사용</title>
+    <script type="text/javascript">
+        //윈도우가 로드될 때 함수 호출
+        window.onload=function(){
+            //생성할 태그를 문자열로 생성
+            let output = '';
+            output += '<ul>';
+            output += '<li>HTML</li>';
+            output += '<li>CSS</li>';
+            output += '<li>JavaScript</li>';
+            output += '<li>jQuery</li>';
+            output += '</ul>';
+            
+            //innerHTML 속성에 문자열을 할당
+            document.body.innerHTML = output;
+
+            //HTML 태그를 화면 보여줌(텍스트만 처리)
+            //document.body.textContent = output;
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

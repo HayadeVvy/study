@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나머지 매개변수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function test1(...args){
+            for(let i=0;i<args.length;i++){
+                document.write(
+                    'args['+i+']:' 
+                        + args[i] + '<br>');
+            }
+        }
+        //함수 호출
+        test1(10,20,30);
+        document.write('-------<br>');
+
+        function test2(a,b,...others){
+            document.write('a : ' + a + '<br>');
+            document.write('b : ' + b + '<br>');
+            for(let i=0;i<others.length;i++){
+                 document.write('others['+i+']:' 
+                        + others[i] + '<br>');
+            }
+        }
+        test2(10,20,30,40,50);
+
+    </script>
+</body>
+</html>

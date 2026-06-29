@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 제거</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //객체 생성
+        const people = {};
+        //객체에 속성 추가
+        people.이름 = '박문수';
+        people.나이 = 30;
+        people.직업 = '경찰';
+        people.취미 = '낚시';
+
+        //toString()메서드 지정
+        people.toString = function(){
+            let output = '';
+            for(let key in this){
+                //toString()메서드는 출력되지
+                //않게 처리
+                if(key != 'toString'){
+                    output += key + ':' + this[key] + '<br>';
+                }
+            }
+            return output;
+        };
+
+        //출력
+        document.write(people + '<br>');
+        document.write('--------<br>');
+
+        //속성 제거
+        delete people.취미;
+        document.write(people);
+    </script>
+</body>
+</html>

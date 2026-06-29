@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+/*
+empty() : 특정 문서 객체의 후손을 모두 제거
+remove() : 특정 문서 객체를 제거
+*/
+            //3초 후에 지정한 태그의 후손을 모두 제거
+            setTimeout(function(){
+                $('div').empty();
+            },3000);
+            //6초 후에 지정한 태그 제거
+            setTimeout(function(){
+                $('p').remove();
+            },6000);
+       });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Header-0</h1>
+        <h1>Header-1</h1>
+    </div>
+
+    <p>
+        <span>Content-0</span>
+        <span>Content-1</span>
+    </p>
+</body>
+</html>

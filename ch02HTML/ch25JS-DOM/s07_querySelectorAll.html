@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+</head>
+<body>
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+    <script type="text/javascript">
+        //자식 선택자
+        const elems = 
+           document.querySelectorAll('ul > li');
+           elems[0].style.backgroundColor = 'yellow';
+           elems[1].style.backgroundColor = 'pink';
+           elems[2].style.backgroundColor = 'skyblue';
+        document.write('------------<br>');
+
+        for(let i=0;i<elems.length;i++){
+            document.write(
+                  elems[i].innerHTML + '<br>');
+        }
+        document.write('----------<br>');
+
+        elems.forEach(function(element){
+            document.write(
+                 element.innerHTML + '<br>');
+        });
+           
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceof 연산자</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //생성자함수 정의
+        function Student(name){
+            this.name = name;
+        }
+        //객체 생성
+        const student = new Student('홍길동');
+
+        //해당 객체가 어떤 생성자함수를 통해 생성
+        //되었는지 확인할 때 instanceof 연산자
+        //사용
+                      //객체             생성자함수
+        document.write(student instanceof Student);
+        document.write('<br>');
+        //상속관계이기 때문에 true 반환
+        document.write(student instanceof Object);
+        document.write('<br>');
+        //상속관계가 아니기 때문에 false 반환
+        document.write(student instanceof Number);
+    </script>
+</body>
+</html>

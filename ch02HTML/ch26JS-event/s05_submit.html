@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submit</title>
+    <script type="text/javascript">
+        function check(){
+            if(document.member.id.value==''){
+                alert('id를 입력하세요!');
+                document.member.id.focus();
+                return false;
+            }
+            if(document.member.password.value==''){
+                alert('비밀번호를 입력하세요!');
+                document.member.password.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="member" action="a.jsp"
+       method="post" onsubmit="return check()">
+        id <input type="text" name="id"><br>
+        비밀번호 <input type="password"
+                 name="password"><br>
+        <input type="submit" value="확인">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>

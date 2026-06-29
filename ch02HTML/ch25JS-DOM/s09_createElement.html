@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            //img 태그 생성
+            const img = document.createElement('img');
+            img.src = '../files/Penguins.jpg';
+            img.width = 500;
+            img.height = 350;
+
+            //노드 연결
+            document.body.appendChild(img);
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

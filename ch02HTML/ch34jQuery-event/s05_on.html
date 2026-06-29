@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <style type="text/css">
+        .reverse{
+            background:black;
+            color:white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //하나의 이벤트 연결
+                  //  이벤트의 종류,이벤트 핸들러
+            $('h1').on('click',function(){
+                $(this).html(function(index,html){
+                    return html + '+';
+                });
+            });
+
+            //복수의 이벤트 연결
+            $('h1').on({
+                mouseover:function(){
+                    $(this).addClass('reverse');//클래스 추가
+                },
+                mouseout:function(){
+                    $(this).removeClass('reverse');//클래스 제거
+                }
+            });
+
+       });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

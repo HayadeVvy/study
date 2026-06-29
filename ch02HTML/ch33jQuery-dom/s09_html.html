@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //html 태그 적용
+            $('div').html('<h1>날씨가 흐린 오전!</h1>');
+            //html 태그 미적용
+            $('p').text('<h1>놀이동산의 곰인형</h1>');
+       });
+    </script>
+</head>
+<body>
+   <div></div>
+   <p></p>
+</body>
+</html>

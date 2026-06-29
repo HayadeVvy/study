@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <style type="text/css">
+        .reverse{
+            background-image:url(../files/winter.jpg);
+            color:white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+           $('h1').hover(function(){
+                //이벤트가 발생한 태그에 클래스 속성을 지정
+                $(this).addClass('reverse');
+           },function(){
+                //이벤트가 발생한 태그에 클래스 속성을 제거
+                $(this).removeClass('reverse');
+           }); 
+       });
+    </script>
+</head>
+<body>
+   <h1>Header-0</h1>
+   <h1>Header-1</h1>
+   <h1>Header-2</h1>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자함수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //생성자함수 정의
+        function Student(name,korean,math,english){
+            //속성 지정
+            this.이름 = name;
+            this.국어 = korean;
+            this.수학 = math;
+            this.영어 = english;
+            //메서드 지정
+            this.getSum = function(){
+                return this.국어 + this.수학 + this.영어;
+            };
+            this.getAverage = function(){
+                return this.getSum()/3;
+            };
+            this.toString = function(){
+                return this.이름 + ', ' + this.getSum() 
+                         + ', ' + this.getAverage();
+            };
+        }
+
+        //생성자함수를 이용한 객체 생성
+        const student = new Student('홍길동',99,98,97);
+        document.write('이름, 총점, 평균<br>');
+        document.write(student + '<br>');
+
+    </script>
+</body>
+</html>

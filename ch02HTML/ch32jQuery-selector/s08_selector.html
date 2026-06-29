@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+        $(document).ready(function(){
+/*
+함수 필터 선택자
+선택자 형태             설명
+요소:contains(문자열)   특정 문자열을 포함하는 문서 객체를 선택
+요소:eq(n)              n번째에 위치하는 문서 객체를 선택
+요소:gt(n)              n번째 초과에 위치하는 문서 객체를 선택
+요소:has(h1)            h1태그를 가지고 있는 문서 객체를 선택
+요소:not(선택자)        선택자와 일치하지 않는 문서 객체를 선택
+요소:nth-child(3n+1)    3n+1 번째에 위치하는 문서 객체를 선택
+                        (1,4,7,...) 태그가 배치된 순서를 계산함                        
+*/
+           $('tr:eq(0)').css('background','#000')
+                        .css('color','#FFF'); 
+           $('td:nth-child(3n+1)').css('background','yellow');
+           $('td:nth-child(3n+2)').css('background','pink');
+           $('td:nth-child(3n)').css('background','gray');             
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>이름</th><th>혈액형</th><th>지역</th>
+        </tr>
+        <tr>
+            <td>강민수</td><td>AB형</td><td>서울</td>
+        </tr>
+        <tr>
+            <td>홍길동</td><td>A형</td><td>부산</td>
+        </tr>
+        <tr>
+            <td>박문수</td><td>B형</td><td>대구</td>
+        </tr>
+        <tr>
+            <td>장영실</td><td>AB형</td><td>인천</td>
+        </tr>
+        <tr>
+            <td>김유신</td><td>O형</td><td>부산</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parseInt()</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let num = '1234';
+        let won = '1000원';
+        let won2 = '원1000';
+
+        //string -> number
+        document.write(Number(num) +'<br>');
+        //NaN
+        document.write(Number(won) + '<br>');
+        document.write(parseInt(num) + '<br>');
+        //앞의 숫자를 추출해서 형변환
+        document.write(parseInt(won) + '<br>');
+        //처음에 문자가 등장하면 형변환할 수 없음
+        document.write(parseInt(won2) + '<br>');
+
+        let num2 = '24.56';
+        //실수가 전달되면 소수점 자리 절삭
+        document.write(parseInt(num2));
+
+    </script>
+</body>
+</html>

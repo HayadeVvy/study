@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형변환</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //입력한 데이터를 string 타입으로 반환
+        var input = prompt('숫자를 입력하세요','숫자');
+
+        document.write(
+            typeof(input) + ':' + input);
+        document.write('<br>');
+        
+        document.write(input + 10);
+        document.write('<br>-------<br>');
+
+        //명시적 형변환
+        //문자 -> 숫자 변환
+        var numberInput = Number(input);
+        document.write('형변환 이후<br>');
+        document.write(typeof(numberInput) + 
+                   ':' + numberInput);
+        document.write('<br>');
+        document.write(numberInput+10);   
+        document.write('<br>-------<br>');
+        
+        //자동적 형변환
+        document.write(input * 10);
+
+    </script>
+</body>
+</html>

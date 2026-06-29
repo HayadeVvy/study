@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습] 로또프로그램 1 ~ 45까지의 중복되지
+               않는 6개 숫자 구하기 
+        난수 : Math.random()
+        절삭 : Math.floor()
+        중복값 체크 : lottoArray.includes(num)             
+        */
+       const lottoArray = [];
+
+       while(lottoArray.length < 6){
+            let num = Math.floor(Math.random()*45)+1; 
+            //중복값 체크
+            if(!lottoArray.includes(num)){
+               lottoArray.push(num); 
+            }
+       }
+       //오름차순 정렬
+       lottoArray.sort(function(left,right){
+            return left - right;
+       });
+       document.write(lottoArray);
+    </script>
+</body>
+</html>

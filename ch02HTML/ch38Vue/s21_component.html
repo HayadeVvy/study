@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <my-local-component></my-local-component>
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+       const vm = Vue.createApp({
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                    num:0
+                }
+            },
+            //로컬 컴포넌트
+            components:{
+                'my-local-component':{
+                    template:'<div>로컬 컴포넌트입니다.</div>'
+                }
+            }
+        })
+        vm.mount('#app');
+    </script>
+</body>
+</html>

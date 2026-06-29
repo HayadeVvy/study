@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내부함수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function f(){
+            let n = 123;
+            //내부함수 정의
+            function g(){
+                document.write(
+                    'n is ' + n + '<br>');
+                document.write(
+                    'g is called');    
+            }
+            //g함수 반환
+            return g;
+        }
+        //함수 호출
+        let m = f();
+        document.write(m + '<br>');
+        document.write('---------<br>');
+        m();//f함수의 내부함수인 g함수가 동작
+
+    </script>
+</body>
+</html>

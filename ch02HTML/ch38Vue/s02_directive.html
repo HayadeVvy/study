@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <!--Vue 디렉티브-->
+        <!--태그 불인정. 태그가 문자열로 출력-->
+        <h2 v-text="message"></h2>
+        <!--태그 인정.-->
+        <h2 v-html="message"></h2>
+        <!--요소의 속성을 바인딩하기 위해 사용-->
+        <input type="text" v-bind:value="content">
+        <br>
+        <img v-bind:src="imagePath"><br>
+        <img :src="imagePath"><br>
+        <!--JSON 데이터 출력-->
+        <span v-text="message2"></span>
+        <br>
+        <span v-text="message2.name"></span>
+        <span v-text="message2.age"></span>
+        <br>
+        <!--boolean 속성 반영-->
+        <input type="text" placeholder="아이디"
+                  :readonly="loading">
+        <!--style 반영-->
+        <div :style="rect"></div>          
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+        Vue.createApp({
+            //컴포넌트가 관리하고 추적해야 할 데이터를
+            //등록할 때 사용
+
+            //Vue 컴포넌트에서 사용하는 반응형 데이터 정의
+            //반응형 데이터(Reactive Data)는 데이터가 변경되면
+            //그 데이터를 사용하는 UI(View)가 자동으로 다시
+            //갱신되는 데이터를 의미
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                    message:'<ins>Hello Vue</ins>',
+                    content:'v-bind 디렉티브',
+                    imagePath:'../files/dog.png',
+                    message2:{
+                        name:"kim",
+                        age:20
+                    },
+                    loading:true,
+                    rect:'background:red;width:200px;height:100px'
+                }
+            }
+        })
+        //mount()
+        //Vue 애플리케이션을 실제 DOM 요소에 연결
+        //'#app' 요소 내부가 Vue의 관리 영역이 됨
+        .mount('#app');
+    </script>
+</body>
+</html>

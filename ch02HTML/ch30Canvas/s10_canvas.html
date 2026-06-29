@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캔버스 연습</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            const canvas = document.getElementById('canvas');
+            if(canvas.getContext){
+                const context = canvas.getContext('2d');
+                //캔버스에서 이미지를 사용하기 위해 Image 객체 생성
+                const img = new Image();
+                //이미지 읽기
+                img.src = '../files/landscape.jpg';
+                img.onload=function(){
+                                  //이미지 객체,x,y
+                    context.drawImage(img,10,10);
+                    //색상 지정
+                    context.fillStyle = 'rgb(200,0,0)';
+                    //사각형
+                    context.fillRect(20,20,100,100);
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="400"></canvas>
+</body>
+</html>

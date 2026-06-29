@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script에서 이벤트 연결</title>
+    <style type="text/css">
+        div{
+            background-color:yellow;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            //선언적 함수를 이용한 이벤트 연결
+            const header = 
+                document.getElementById('header');
+            function whenClick(){
+                alert('클릭');
+            }  
+            //이벤트 연결
+            //   이벤트 속성= 이벤트 핸들러  
+            header.onclick = whenClick;
+            
+            //아래와 같이 연결하면 이벤트 연결을
+            //한 것이 아니라 함수를 1회 호출.
+            //이벤트 연결 불가
+            //header.onclick = whenClick();
+
+            //익명함수를 이용한 이벤트 연결
+            const header2 = 
+                document.getElementById('header2');
+            //이벤트 연결
+            //이벤트 속성 = 이벤트 핸들러
+            header2.onclick=function(){
+                alert('CLICK');
+            };    
+        };
+    </script>
+</head>
+<body>
+    <div id="header">클릭</div>
+    <br>
+    <div id="header2">CLICK</div>
+</body>
+</html>

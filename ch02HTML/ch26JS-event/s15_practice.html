@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            const confirm_btn = 
+               document.getElementById('confirm_btn');
+            //이벤트 연결
+            confirm_btn.onclick=function(){
+                const korean = 
+                     document.getElementById('korean');
+                const english =
+                     document.getElementById('english');
+                const math = 
+                    document.getElementById('math');
+                
+                //총점 구하기
+                let sum = Number(korean.value) + 
+                          Number(english.value) + 
+                          Number(math.value);  
+                //평균 구하기
+                let avg = sum/3;
+                
+                let msg = '';
+                msg += '국어:' + korean.value + '<br>';
+                msg += '영어:' + english.value + '<br>';
+                msg += '수학:' + math.value + '<br>';
+                msg += '총점:' + sum + '<br>';
+                msg += '평균:' + avg.toFixed(2);
+
+                document.getElementById('result').innerHTML = msg;
+            };   
+        };
+    </script>
+</head>
+<body>
+    국어 <input type="text" id="korean"><br>
+    영어 <input type="text" id="english"><br>
+    수학 <input type="text" id="math"><br>
+    <input type="button" value="확인"
+                         id="confirm_btn">
+    <!--국어,영어,수학,총점,평균-->
+    <div id="result"></div>                     
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <style type="text/css">
+        div{
+            margin:5px;
+            padding:3px;
+            border-width: 3px;
+            border-style: solid;
+            border-color:black;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //이벤트 연결
+            $('div').on('click',function(){
+                //이벤트가 발생한 태그의 하위 태그 중 h1 태그 접근
+                var header = $('h1',this).text();
+                //이벤트가 발생한 태그의 하위 태그 중 p 태그 접근
+                var paragraph = $('p',this).text();
+
+                alert(header + '\n' + paragraph);
+            });
+       });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Header1</h1>
+        <p>Paragraph1</p>
+    </div>
+    <div>
+        <h1>Header2</h1>
+        <p>Paragraph2</p>
+    </div>
+    <div>
+        <h1>Header3</h1>
+        <p>Paragraph3</p>
+    </div>
+</body>
+</html>

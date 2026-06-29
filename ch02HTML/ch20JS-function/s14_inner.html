@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역변수의 유효범위</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        지역변수는 함수가 실행될 때 생성되고
+        함수가 종료될 때 사라짐.
+        하지만 클로저를 사용하면 이 규칙을
+        위반할 수 있음.
+        지역변수는 남겨두는 현상을 클로저라고 
+        부른다.
+        */
+        function outerFunction(name){
+            let output = 
+               'Hello ' + name + '..!';
+            //익명함수 반환
+            return function(){
+                alert(output);
+            };   
+        }
+       let m = outerFunction('홍길동');
+       //outerFunction의 익명함수(내부함수) 호출
+       m();
+    </script>
+</body>
+</html>

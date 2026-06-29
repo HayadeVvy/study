@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //ES6 function 키워드를 생략한 축약 표현
+        const obj = {
+            //속성 정의
+            name:'Lee',
+            //메서드 정의
+            sayYes:function(){
+                return "yes";
+            },
+            //메서드 축약 표현
+            sayHi(){
+                document.write('Hi!' + this.name);
+            }
+        };
+        obj.sayHi();
+    </script>
+</body>
+</html>

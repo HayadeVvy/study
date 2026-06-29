@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수를 매개변수로 받는 함수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //함수를 10번 호출하는 함수
+        function callFunctionTenTimes(otherFunction){
+            for(let i=0;i<10;i++){
+                //매개변수로 전달된 함수를 실행
+                otherFunction();
+            }
+        }
+
+        //함수의 매개변수를 통해 다른 함수의
+        //내부로 전달되는 함수(콜백 함수)
+        function justFunction(){
+            document.write('Happy Day!!<br>');
+        }
+
+        //함수 호출
+        //아래 경우는 함수를 호출하면서 다른
+        //함수를 매개변수로 전달한 것이 아니라
+        //전달되는 함수가 바로 실행되는 경우,
+        //오류 발생
+        //callFunctionTenTimes(justFunction());
+
+        //함수 호출(선언적 함수를 매개변수에 전달)
+        callFunctionTenTimes(justFunction);
+        document.write('-----------<br>');
+
+        //함수 호출(익명함수를 매개변수에 전달)
+        callFunctionTenTimes(function(){
+            document.write('Hello JavaScript!<br>');
+        });
+    </script>
+</body>
+</html>

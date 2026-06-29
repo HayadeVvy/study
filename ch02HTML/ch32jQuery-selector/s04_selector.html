@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+        $(document).ready(function(){
+           //자식 선택자
+           //body 태그의 자식(직계자식)으로 범위를 한정
+           $('body > div.child').css('border','3px solid red');
+
+           //후손 선택자
+           $('body div.desc').css('border', '3px solid blue');
+        });
+    </script>
+</head>
+<body>
+   <div class="child">
+        <ul>
+            <li>사과</li>
+            <li>바나나</li>
+            <li>포도</li>
+            <li>망고</li>
+        </ul>
+        <div class="child">가을 여행</div>
+   </div>
+
+   <hr size="1" width="100%">
+
+   <div class="desc">
+        <ul>
+            <li>서울</li>
+            <li>부산</li>
+            <li>대구</li>
+            <li>광주</li>
+        </ul>
+        <div class="desc">겨울 여행</div>
+    </div>
+</body>
+</html>

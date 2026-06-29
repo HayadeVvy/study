@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+           $('#btn1').on('click',function(){
+                //선택한 요소를 지정한 투명도가 적용되게 처리
+                               //속도값,알파
+                $('#dog').fadeTo('slow',0.3);
+           });
+           $('#btn2').on('click',function(){
+                                       //완전 불투명
+                $('#dog').fadeTo('slow',1);
+           });
+           $('#btn3').on('click',function(){
+                                       //완전 투명
+                $('#dog').fadeTo('slow',0);
+           });
+       });
+    </script>
+</head>
+<body>
+    <button id="btn1">투명도(0.3)</button>
+    <button id="btn2">투명도(1)</button>
+    <button id="btn3">투명도(0)</button>
+    <br>
+    <img id="dog" src="../files/dog.png"
+       width="120" height="100">
+</body>
+</html>

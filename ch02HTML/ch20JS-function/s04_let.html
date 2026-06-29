@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        ES6에서 변수를 정의할 때let를
+        사용할 수 있음
+        let는 블록 레벨 스코프
+        */
+       document.write(
+        'let를 블록 레벨 지역변수로 사용<br>');
+       for(let i = 1;i <= 3; i++){
+        document.write(i + ' ');
+       } 
+       //제어문 블럭이 끝나면 제어문 안에서
+       //정의된 변수는 소멸
+       //document.write(i);
+
+       document.write(
+        '<br>let를 전역변수로 사용<br>');
+
+       let a = 10;
+       function test(){
+        document.write(a + '<br>');
+       }  
+       test();
+       function test2(){
+        document.write(a);
+       }
+       test2();
+
+    </script>
+</body>
+</html>

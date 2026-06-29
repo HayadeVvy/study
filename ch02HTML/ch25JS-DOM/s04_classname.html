@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스를 이용한 문서 객체 탐색</title>
+</head>
+<body>
+   <p id="foo">
+        <span class="matched">a</span>
+        <span class="matched unmatched">b</span>
+        <span class="unmatched">c</span>
+   </p> 
+   <p id="bar">
+        <span class="matched">x</span>
+   </p>
+   <hr size="1" width="100%">
+   <script type="text/javascript">
+        //태그의 class 속성이 지정한 class명과
+        //일치하는 문서 객체를 배열로 가져옴
+        const foo = 
+          document.getElementsByClassName('matched');
+
+        let output = '[class명이 matched인 모든 태그의 text 출력]';
+        for(let i=0;i<foo.length;i++){
+            output += foo[i].innerHTML + ' ';
+        }
+        document.write(output + '<br>');
+
+        const foo2 = document.getElementById('foo');
+        const fooMatched = 
+             foo2.getElementsByClassName('matched');
+
+        let output2 = '[id가 foo인 태그의 하위 태그 중 class명이 matched인 모든 태그의 text 출력]';  
+        for(let i=0;i<fooMatched.length;i++){
+            output2 += fooMatched[i].innerHTML + ' ';
+        }   
+        document.write(output2);
+   </script>
+</body>
+</html>

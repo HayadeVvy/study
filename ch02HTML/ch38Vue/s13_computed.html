@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+    <style type="text/css">
+        #list {width:600px;border:1px solid black;border-collapse:collapse;}
+        #list td, #list th {border:1px solid black;text-align:center;}
+        #list > thead > tr {color:yellow;background-color:purple;}
+    </style>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <!--계산된 속성(Computed Property)-->
+        1보다 큰 수 : <input id="a" type="text"
+                         v-model.number="num">
+        <br>
+        <!--computed 속성의 sum 값을 화면에 출력-->
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>
+        1부터 입력한 값까지의 합 : <span>{{sum}}</span><br>                 
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+        Vue.createApp({
+            //컴포넌트가 관리하고 추적해야 할 데이터를
+            //등록할 때 사용
+
+            //Vue 컴포넌트에서 사용하는 반응형 데이터 정의
+            //반응형 데이터(Reactive Data)는 데이터가 변경되면
+            //그 데이터를 사용하는 UI(View)가 자동으로 다시
+            //갱신되는 데이터를 의미
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                   num:0
+                }
+            },
+            /*
+            sum()은 함수이지만 마치 데이터인 것 처럼 {{sum}}
+            과 같이 사용함.
+            this.num이 바뀌면 computed에 등록된 sum()함수가
+            호출되고 리턴된 값을 sum에 캐싱. 위의 화면에서
+            여러 번 동일한 값을 렌더링하더라도 sum()함수는 
+            단 한 번만 호출
+            */
+            computed:{
+                sum(){
+                    console.log('## num : ' + this.num);
+                    let n = parseInt(this.num);
+                    if(Number.isNaN(n)) return 0;
+                    return (n*(n+1))/2;
+
+                }
+            }
+        })
+        //mount()
+        //Vue 애플리케이션을 실제 DOM 요소에 연결
+        //'#app' 요소 내부가 Vue의 관리 영역이 됨
+        .mount('#app');
+    </script>
+</body>
+</html>

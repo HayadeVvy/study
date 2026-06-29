@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function test(){
+            const a = 10;
+            document.write(a + '<br>');
+            //상수는 변경 불가능
+            //a = 20;
+            //document.write(a + '<br>');
+        }
+        test();
+        //const는 블록 레벨 스코프이기
+        //때문에 함수가 종료되면 소멸됨
+        //document.write(a + '<br>');
+
+        const b = 100;//전역적으로 상수 사용
+        function test2(){
+            document.write(b + '<br>');
+        }
+        test2();
+
+        function test3(){
+            document.write(b);
+        }
+        test3();
+
+
+    </script>
+</body>
+</html>

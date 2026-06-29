@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            //파일을 선택할 때
+            document.getElementById('file').onchange=function(){
+                //파일 객체 반환
+                let file = this.files[0];
+
+                //파일명 구하기
+                alert(file.name + '을 선택했습니다.');
+
+                //읽기 버튼을 클릭할 때
+                document.getElementById('btnStart').onclick=function(){
+                    readProcess();
+                };
+                
+            };
+        };
+
+        function readProcess(){
+            //선택한 파일에 대한 정보 읽기
+            const file = 
+              document.getElementById('file').files[0];
+            
+            if(!file){//=if(file == undefined)
+                alert('파일을 선택하세요!');
+            }  
+
+            document.getElementById('filename').textContent = file.name;
+            document.getElementById('filesize').textContent = '('+file.size+'bytes)';
+            document.getElementById('filetype').textContent = file.type;
+            document.getElementById('filedate').textContent = file.lastModifiedDate.toLocaleString();
+
+            const encodeList = document.getElementById('encoding');
+            let encoding = encodeList.value;
+
+            //파일 읽기 기능 제공
+            const reader = new FileReader();
+            //선택한 파일을 읽어서 문자열로 저장
+            reader.readAsText(file,encoding);
+
+            reader.onload=function(){
+                const disp = document.getElementById('contents');
+                //읽어들인 내용 반환
+                disp.value = reader.result;
+            };
+        }
+    </script>
+</head>
+<body>
+    <h2>현재 시스템의 파일 읽기</h2>
+    <input type="file" id="file" accept="text/*">
+    <select id="encoding">
+        <option>EUC-KR</option>
+        <option>UTF-8</option>
+    </select>
+    <button id="btnStart">읽기</button>
+    <br>
+    <div>
+        <span id="filename">파일명</span>
+        <span id="filesize">파일크기</span>
+        <span id="filetype">파일타입</span>
+        <span id="filedate">파일의 마지막 갱신 일시</span>
+    </div>
+    <textarea id="contents" rows="10"
+       cols="50" readonly="readonly"></textarea>
+</body>
+</html>

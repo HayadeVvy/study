@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>id와 태그명을 사용해서 문서 객체 탐색</title>
+</head>
+<body>
+    <p id="foo">
+        <span>a</span>
+        <span>b</span>
+        <span>c</span>
+    </p>
+    <p id="bar">
+        <span>x</span>
+    </p>
+    <hr size="1" width="100%">
+    <script type="text/javascript">
+        const allSpans = 
+            document.getElementsByTagName('span');
+
+        let output = '[모든 span 태그의 text 출력]';
+        for(let i=0;i<allSpans.length;i++){
+            output += allSpans[i].innerHTML + ' ';
+        }
+        document.write(output + '<br>');
+
+        const foo = document.getElementById('foo');
+        //p 태그 하위의 span태그를 배열로 반환
+        const fooSpans = 
+              foo.getElementsByTagName('span');
+
+        let output2 = '[id가 foo인 p태그 하위 태그 중 모든 span 태그의 text 출력]';
+        for(let i=0;i<fooSpans.length;i++){
+            output2 += fooSpans[i].innerHTML + ' ';
+        }    
+        document.write(output2);  
+    </script>
+</body>
+</html>

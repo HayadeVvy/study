@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function returnTest(){
+            document.write('문장 A<br>');
+
+            for(let i=1;i<=10;i++){
+
+                if(i == 5){
+                    //반복문 탈출
+                    //break;
+
+                    //함수 탈출
+                    return;
+                }
+
+                document.write(i + '<br>');
+            }
+
+            document.write('문장 B<br>');
+        }
+        //함수 호출
+        returnTest();
+        document.write('프로그램 끝!');
+    </script>
+</body>
+</html>

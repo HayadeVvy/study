@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수 사용시 주의사항</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var food = '라면';//변수 선언과 초기화
+        document.write(food + '<br>');
+
+        food = '냉면';
+        document.write(food);
+
+        document.write('<br>------------<br>');
+        //변수명을 동일하게 선언해도
+        //오류가 발생하지 않음
+        var food = '칼국수';
+        document.write(food);
+
+    </script>
+</body>
+</html>

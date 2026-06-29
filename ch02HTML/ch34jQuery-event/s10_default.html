@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            //이벤트 연결
+            $('a').click(function(event){
+
+                $(this).css('background-color','skyblue');
+
+                //이벤트 핸들러의 매개변수로 event 객체 전달받고
+                //event 객체의 preventDefault() 호출
+
+                //기본 이벤트 제거
+                event.preventDefault(); //=return false;
+            });
+       });
+    </script>
+</head>
+<body>
+    <h1>
+        <a href="https://www.naver.com">네이버</a>
+    </h1>
+</body>
+</html>

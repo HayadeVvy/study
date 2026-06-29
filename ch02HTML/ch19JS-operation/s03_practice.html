@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습]정수를 두 개를 입력해서 입력된
+        두 수 중 최대값은 변수 max에 넣고
+        최소값은 변수 min에 넣음.
+        조건체크는 if문 이용. min, max 출력
+        */
+        var num1 = prompt('첫 번째 정수 입력','');
+        var num2 = prompt('두 번째 정수 입력','');
+
+        //(주의)두 변수에 담겨있는 데이터 모두
+        //문자이기 때문에 비교연산자를 이용해서
+        //연산을 할 때 형변환이 일어나지 않고
+        //문자 비교가 됨
+        //숫자 비교를 원할 경우 명시적 형변환
+        var a = Number(num1);
+        var b = Number(num2);
+
+        var max, min;
+        if(a > b){
+            max = num1;
+            min = num2;
+        }else{
+            max = num2;
+            min = num1;
+        }
+        document.write(
+            '최대값 :' + max 
+            + ', 최소값 : ' + min);
+
+    </script>
+</body>
+</html>

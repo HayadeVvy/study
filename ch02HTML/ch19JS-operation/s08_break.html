@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //브레크 레이블문을 사용해서
+        //중첩 루프를 동시에 빠져나가는 코드
+        outer_loop:
+        for(var i=0;i<5;i++){
+            for(var j=0;j<5;j++){
+                if(j == 3) break outer_loop;
+
+                document.write(
+                    i + ',' + j + '<br>');
+            }
+        }
+    </script>
+</body>
+</html>

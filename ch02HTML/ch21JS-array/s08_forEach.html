@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //배열 생성
+        const array = [1,2,3,4,5,6,7,8,9,10];
+
+        //반복문을 이용해서 요소 출력
+        for(let i=0;i<array.length;i++){
+            document.write(
+                'array['+i+']:' + array[i] + '<br>');
+        }
+        document.write('--------<br>');
+
+        let sum = 0;
+        let output = '';
+        array.forEach(function(element, index, array){
+            //element : 요소
+            //index : 인덱스
+            //array : 배열
+            sum += element;
+
+            document.write(index + ':' 
+                  + element + '->' + sum + '<br>');
+            document.write(array + '<br>');
+        });
+        document.write('--------<br>');
+        document.write(
+              '배열 요소의 합계 : ' + sum);
+    </script>
+</body>
+</html>

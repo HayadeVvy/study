@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parseFloat</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let num = '24.56';
+        let dollar = '1.5$';
+        let dollar2 = '$1.5';
+
+        //string -> number
+        document.write(Number(num) + '<br>');
+        document.write(Number(dollar) + '<br>');
+        document.write(parseFloat(dollar) + '<br>');
+        document.write(parseFloat(dollar2) + '<br>');
+
+        document.write('----------<br>');
+
+        let no = '10';
+        document.write(parseFloat(no));
+
+    </script>
+</body>
+</html>

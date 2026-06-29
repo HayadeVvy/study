@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var tearchName = '박문수';
+        //객체 생성
+        var mySon = {
+            name:'달봉이',
+            age:7,
+            play:function(){
+                return this.name + '가 놀다!';
+            },
+            getInfo:function(){
+                document.write(
+                    this.name + '는' 
+                      + this.age + '살이고 '
+                + '선생님은 ' + tearchName + '입니다.');
+            }
+        };
+
+        document.write(mySon.name + '<br>');
+        document.write(mySon.age + '<br>');
+        document.write(mySon.play() + '<br>');
+        mySon.getInfo();
+
+    </script>
+</body>
+</html>

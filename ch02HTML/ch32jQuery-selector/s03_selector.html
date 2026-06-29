@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+        $(document).ready(function(){
+           //특정 id 속성을 가지는 태그 선택
+           $('h3#target').css('color','skyblue');
+           //클래스
+           $('.item').css('color','orange');
+           //특정 클래스 속성을 가지는 태그 선택
+           $('h1.item').css('background','red');
+           //두 개의 클래스를 모두 가지는 태그 선택
+           $('h1.item.select').css('background','blue');
+           //그룹 선택자
+           $('h1,p').css('color','orange');
+        });
+    </script>
+</head>
+<body>
+   <h3>header-0</h3>
+   <h3 id="target">header-1</h3>
+   <h3>header-2</h3>
+   
+   <h1 class="item">Header-0</h1>
+   <h2 class="item">Header-1</h2>
+   <h1 class="item select">Header-2</h1>
+   <h1 class="item">Header-3</h1>
+
+   <h1>강물은 흐르고</h1>
+   <h2>새벽 바람이 차다</h2>
+   <p>내 눈물도 흐르고</p>
+   <div>별이 흐른다</div>
+</body>
+</html>

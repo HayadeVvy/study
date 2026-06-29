@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+          //이벤트 연결
+          $('textarea').keyup(function(){
+            //입력한 글자수를 구함
+            let inputLength = $(this).val().length;
+            //남은 글자수 구하기
+            let remain = 30 - inputLength;
+
+            //문서 객체에 저장
+            $('h1').text(remain);
+
+            //문서 객체의 색상 변경
+            if(remain >= 0){
+                $('h1').css('color','black');
+            }else{
+                $('h1').css('color','red');
+            }
+          });
+       });
+    </script>
+</head>
+<body>
+    <p>지금 내 생각을</p>
+    <h1>30</h1>
+    <textarea rows="5" cols="70" maxlength="30"></textarea>
+</body>
+</html>

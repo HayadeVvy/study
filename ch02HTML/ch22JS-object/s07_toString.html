@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toString</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //객체 생성
+        const student = {};
+
+        document.write(student);
+        document.write('<br>');
+        document.write(student.toString());
+        document.write('<br>');
+
+        //객체에 속성 추가
+        student.이름 = '홍길동';
+        student.취미 = '악기';
+        student.특기 = '프로그래밍';
+        student.장래희망 = '프로그래머';
+
+        let output = '';
+        for(let key in student){
+            output += key + ':' 
+                  + student[key] + '<br>';
+        }
+        document.write(output);
+        document.write('---------<br>');
+
+        //객체에 메서드 추가
+        student.toString = function(){
+            let msg = '';
+            for(let key in this){
+                if(key != 'toString'){
+                    msg += key + ':' + this[key] + '<br>';
+                }
+            }
+            return msg;
+        };
+        document.write(student.toString() + '<br>');
+        document.write('---------<br>');
+        document.write(student);
+    </script>
+</body>
+</html>

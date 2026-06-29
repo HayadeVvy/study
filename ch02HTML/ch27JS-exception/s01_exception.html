@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //예외처리를 하지 않은 경우
+        //alert(num);
+
+        //예외처리
+        document.write('1<br>');
+        try{
+            //예외가 발생할 가능성이 있는 문구
+            document.write(num);
+            document.write('2<br>');
+        }catch(exception){
+            document.write('3<br>');
+        }
+        document.write('프로그램 끝');
+    </script>
+</body>
+</html>

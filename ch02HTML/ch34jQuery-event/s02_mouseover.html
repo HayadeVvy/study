@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            $('#btn1').mouseover(function(){//이벤트 핸들러
+                $('p').css('background-color','yellow');
+            });
+            $('#btn1').mouseout(function(){
+                $('p').css('background-color','purple');
+            });
+            $('#btn2').hover(function(){
+                $('p').css('background-color','pink');
+            },function(){
+                $('p').css('background-color','skyblue');
+            });
+       });
+    </script>
+</head>
+<body>
+   <button id="btn1">mouseover/out</button>
+   <button id="btn2">hover</button>
+   <p>내용</p>
+</body>
+</html>

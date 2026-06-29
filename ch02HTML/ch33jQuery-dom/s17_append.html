@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 연결</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행하라는 의미
+       //=$(document).ready(function(){});
+       $(function(){
+            const content = [
+                             {name:'김연아',region:'서울시'},
+                             {name:'이상화',region:'부산시'},
+                             {name:'손연재',region:'인천시'}
+                            ];
+            let output = '';
+            $(content).each(function(index,item){
+                //index : 배열의 인덱스
+                //item : 배열에 저장된 객체
+                output += '<p>';
+                output += '<h2>' + item.name + '</h2>';
+                output += '<span>' + item.region + '</span>';
+                output += '</p>';    
+            }); 
+            
+            $('#output').append(output);
+       });
+    </script>
+</head>
+<body>
+    <div id="output"></div>
+</body>
+</html>

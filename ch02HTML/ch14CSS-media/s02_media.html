@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+           content="width=device-width,initial-scale=1">
+        <title>media query</title>
+        <style type="text/css">
+            body{
+                font-family: '맑은 고딕';
+                margin:0;
+                padding:0;
+            }
+            #container{
+                margin:0 auto;
+                border:1px solid #ccc;
+                padding:20px;
+                overflow: hidden;
+            }
+            div#header{
+                width:100%;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            div#header ul{
+                list-style: none;
+            }
+            div#header ul li{
+                display: flex;
+                align-items:center;
+                justify-content: center;
+            }
+            /*767px 이하*/
+            @media screen and (max-width:767px) {
+                #container{
+                    width:96%;
+                }
+                div#header ul{
+                    padding:0;
+                }
+                div#header ul li{
+                    background-color: skyblue;
+                    height: 35px;
+                    margin:2px;
+                }
+            }
+            /*768px 이상*/
+            @media screen and (min-width:768px) {
+                #container{
+                    width:1024px;
+                }
+                div#header ul{
+                    margin:0 auto;
+                }
+                div#header ul li{
+                    display: inline-block;
+                    width:230px;
+                }
+                .content{
+                    float:left;
+                    width:50%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <ul>
+                    <li>회사소개</li>
+                    <li>제품소개</li>
+                    <li>고객센터</li>
+                    <li>커뮤니티</li>
+                </ul>
+            </div><!--end of header-->
+            <div id="contents">
+                <div class="content">
+                    <div class="page-title">
+                        <h1>회사소개</h1>
+                    </div>
+                    <div class="detail">
+                        <div class="photo">
+                            <img src="../files/coffee.jpg">
+                        </div>
+                        <div class="text">
+                            <p>영업 시간 : 오전 9시 ~ 밤 10시</p>
+                        </div>
+                    </div>
+                </div><!--end of content-->
+                <div class="content">
+                    <div class="page-title">
+                        <h1>제품소개</h1>
+                    </div>
+                    <div class="detail">
+                        <div class="photo">
+                            <img src="../files/coffee.jpg">
+                        </div>
+                        <div class="text">
+                            <p>좋아요!</p>
+                        </div>
+                    </div>
+                </div><!--end of content-->
+            </div><!--end of contents-->
+        </div>
+    </body>
+</html>

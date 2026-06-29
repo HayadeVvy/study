@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리</title>
+</head>
+<body>
+   <script type="text/javascript">
+        try{
+            //예외가 발생할 가능성이 있는 코드
+            var result = 10 / 0;
+
+            if(!isFinite(result)){
+                //예외를 일부러 발생시킴
+                throw 'DivideByZeroException';
+            }
+
+        }catch(exception){
+           document.write(exception); 
+        }finally{
+            document.write(
+            '<br>오류가 발생하건 발생하지 않건 반드시 수행');
+        }
+        document.write('<br>프로그램 끝');
+   </script> 
+</body>
+</html>

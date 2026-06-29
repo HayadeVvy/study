@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <child-component v-bind:props-data="message"></child-component>
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+       const vm = Vue.createApp({
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                    message:'전달할 상위컴포넌트 메시지'
+                }
+            }
+        })
+
+        //전역 컴포넌트
+        vm.component('child-component',{
+            //부모태그에서 자식태그로 데이터 전달
+            //props:['propsData','myData'],
+            props:{
+                propsData:String,
+                myData:Number
+            },
+            template:'<p>{{propsData}}</p>'
+        })
+
+        vm.mount('#app');
+    </script>
+</body>
+</html>

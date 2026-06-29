@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+</head>
+<body>
+    <!--Vue 애플리케이션이 적용될 영역(루트 DOM)-->
+    <div id="app">
+        <!--
+        조건 렌더링 디렉티브
+        v-show에 부여된 조건이 true일 때만 화면에 보여줌
+        -->
+        예금액 : <input type="text" v-model="amount">
+        <span v-show="amount<0">음수는 허용하지 않습니다.</span>
+        <br>
+        입력된 수 : <span>{{amount}}</span>
+
+        <hr>
+
+        <input type="text" v-model="money"><br>
+        현재 예금액 : <span v-text="money"></span>
+        <br><br>
+        현재 예금액 : <span v-show="money > 0" v-text="money"></span>
+    </div>
+    <!--Vue 라이브러리를 CDN 방식으로 로드-->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+        //Vue 애플리케이션 생성
+        Vue.createApp({
+            //컴포넌트가 관리하고 추적해야 할 데이터를
+            //등록할 때 사용
+
+            //Vue 컴포넌트에서 사용하는 반응형 데이터 정의
+            //반응형 데이터(Reactive Data)는 데이터가 변경되면
+            //그 데이터를 사용하는 UI(View)가 자동으로 다시
+            //갱신되는 데이터를 의미
+            data(){
+                //View에서 사용할 데이터 객체 반환
+                return {
+                    amount:"",//숫자라도 초기값을 ""로 지정 가능
+                    money:0
+                }
+            }
+        })
+        //mount()
+        //Vue 애플리케이션을 실제 DOM 요소에 연결
+        //'#app' 요소 내부가 Vue의 관리 영역이 됨
+        .mount('#app');
+    </script>
+</body>
+</html>
